@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Ruben</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="navbar">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <div class="nav-container">
+      <div class="logo"></div>
+
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-controls="navMenu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav role="navigation" class="nav-links" id="navMenu">
+        <a href="#accueil">Accueil</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projet">Projets</a>
+        <a href="#formation">Formation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ACCUEIL -->
+    <section id="accueil" class="full-screen">
+      <div class="container hero">
+        <span class="intro-text"></span>
+        <h1>Ruben Cassin</h1>
+        <p class="description">Étudiant en BTS SIO - Option SLAM.</p>
+
+        <div class="cta-buttons">
+          <a href="#projet" class="btn-project">Voir mes projets</a>
+          <a href="assets/Ruben_Cassin_CV.pdf" class="btn-cv">Télécharger mon CV</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/RubenCassin" target="_blank" rel="noopener">
+            <img src="assets/img/github-svgrepo-com.svg" alt="Github">
+          </a>
+          <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank" rel="noopener">
+            <img src="assets/img/linkedin-svgrepo-com.svg" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATION -->
+    <section id="formation" class="edu">
+      <h2>Formation</h2>
+      <p class="edu-sub"> Mon parcours scolaire</p>
+      <div class="timeline">
+        <article class="t-item">
+          <div class="t-date">2025 — 2027</div>
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>BTS SIO<span class="pill">SLAM</span></h3>
+            <p class="t-meta">Lycée Jean Bart · Dunkerque</p>
+            <p class="t-desc">Développement web, ateliers professionnel, notions réseau.</p>
+          </div>
+        </article>
+        <article class="t-item">
+          <div class="t-date">2024 — 2025</div>
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>Licence Mathématiques-Informatique</h3>
+            <p class="t-meta">Université de Lille</p>
+          </div>
+        </article>
+        <article class="t-item">
+          <div class="t-date">2023 — 2024</div>
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>BUT Genie électrique et informatique industrielle</h3>
+            <p class="t-meta">IUT de Lille</p>
+          </div>
+        </article>
+      </div>  
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Compétences</h2>
+          <p class="section-intro">Voici les technologies que je maîtrise</p>
+        </header>
+
+        <div class="skill-grid">
+          <div class="skill-card">
+            <div class="icon-box"><i data-lucide="code-2"></i></div>
+            <h3>Développement</h3>
+            <ul>
+              <li>HTML / CSS</li>
+              <li>JavaScript</li>
+              <li>PHP</li>
+              <li>Python</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box"><i data-lucide="database"></i></div>
+            <h3>Bases de Données</h3>
+            <ul>
+              <li>MySQL</li>
+              <li>PHPmyAdmin</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box"><i data-lucide="wrench"></i></div>
+            <h3>Outils</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon-box"><i data-lucide="users"></i></div>
+            <h3>Compétences</h3>
+            <ul>
+              <li>Gestion de projet</li>
+              <li>Travail en équipe</li>
+              <li>Autonome</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projet" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <h2>Projets</h2>
+          <p class="section-intro">Quelques-uns de mes projets récents</p>
+        </header>
+
+        <div class="project-grid">
+
+          <article class="project-card">
+            <img src="assets/img/portfolio.png" alt="Site Web Portfolio" class="project-img">
+            <div class="project-content">
+              <h3>Site Web Portfolio</h3>
+              <p>Un site web personnel pour présenter mes compétences et projets.</p>
+
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-links">
+                <a href="#" class="btn-small git">
+                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
+                  Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="assets/img/Idologis.png" alt="Site Idologis" class="project-img">
+            <div class="project-content">
+              <h3>Site Idologis (Projet BTS)</h3>
+              <p>Site Immobilier</p>
+
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/RubenCassin/Site-Idologis" class="btn-small git">
+                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
+                  Code
+                </a>
+                <a href="projet/Site Web Idologis Statique/index.html" class="btn-small ext">
+                  <img src="assets/img/external-svgrepo-com.svg" alt="Démo">
+                  Démo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="assets/img/FaisTaBA.png" alt="Hackathon" class="project-img">
+            <div class="project-content">
+              <h3>Fais Ta BA</h3>
+              <p>Projet réalisé dans le cadre d'un Hackathon.</p>
+
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>Tailwind CSS</span>
+                <span>PHP</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/Fl3ixy/hackathon2026" class="btn-small git">
+                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
+                  Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Contact</h2>
+          <p class="section-intro">N'hésitez pas à me contacter</p>
+        </header>
+
+        <div class="contact-wrap">
+          <div class="contact-card">
+            <p><strong>Email :</strong> <a href="mailto:rubencassin@protonmail.com" target="_blank" rel="noopener">rubencassin@protonmail.com</a></p>
+            <p><strong>GitHub :</strong> <a href="https://github.com/RubenCassin" target="_blank" rel="noopener">github.com/RubenCassin</a></p>
+            <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank" rel="noopener">linkedin.com/in/ruben-cassin-8714b5301/</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Ruben Cassin. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
