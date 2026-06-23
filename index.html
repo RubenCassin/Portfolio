@@ -1,255 +1,410 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio - Ruben</title>
-
-  <link rel="stylesheet" href="css/style.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruben CASSIN — Développeur Full Stack</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="navbar">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <div class="nav-container">
-      <div class="logo"></div>
 
-      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-controls="navMenu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<div class="cursor-glow" id="glow"></div>
 
-      <nav role="navigation" class="nav-links" id="navMenu">
-        <a href="#accueil">Accueil</a>
-        <a href="#formation">Formation</a>
-        <a href="#competences">Compétences</a>
-        <a href="#projet">Projets</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- =============================================
+     NAVIGATION
+     Modifie les liens href="#section" si besoin
+     ============================================= -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <rect x="2" y="2" width="7" height="7" fill="#00ff9d"/>
+      <rect x="11" y="2" width="7" height="7" fill="#7c3aed" opacity="0.7"/>
+      <rect x="2" y="11" width="7" height="7" fill="#7c3aed" opacity="0.7"/>
+      <rect x="11" y="11" width="7" height="7" fill="#00ff9d" opacity="0.4"/>
+    </svg>
+    <span>~/</span>portfolio.dev
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">01 À propos</a></li>
+    <li><a href="#skills">02 Skills</a></li>
+    <li><a href="#projects">03 Projets</a></li>
+    <li><a href="#contact">04 Contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <!-- Modifie ce texte si besoin -->
+    En cours de formation · BTS SIO
+  </div>
+</nav>
+
+<!-- =============================================
+     HERO — modifie ton prénom, nom, rôle, description
+     ============================================= -->
+<section id="hero">
+  <div class="hero">
+    <div class="hero-tag">Étudiant BTS SIO · Option SLAM</div>
+    <h1 class="hero-name">
+      <div class="first">Ruben</div>
+      <div class="last">CASSIN</div>
+    </h1>
+    <div class="hero-role">
+      <span>Développeur Web &amp; Applications</span>
     </div>
-  </header>
-
-
-  <main>
-
-    <!-- ACCUEIL -->
-    <section id="accueil" class="full-screen">
-      <div class="container hero">
-        <span class="intro-text"></span>
-        <h1>Ruben Cassin</h1>
-        <p class="description">Étudiant en BTS SIO - Option SLAM.</p>
-
-        <div class="cta-buttons">
-          <a href="#projet" class="btn-project">Voir mes projets</a>
-          <a href="assets/Ruben_Cassin_CV.pdf" class="btn-cv">Télécharger mon CV</a>
-        </div>
-
-        <div class="social-links">
-          <a href="https://github.com/RubenCassin" target="_blank" rel="noopener">
-            <img src="assets/img/github-svgrepo-com.svg" alt="Github">
-          </a>
-          <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank" rel="noopener">
-            <img src="assets/img/linkedin-svgrepo-com.svg" alt="LinkedIn">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FORMATION -->
-    <section id="formation" class="edu">
-      <h2>Formation</h2>
-      <p class="edu-sub"> Mon parcours scolaire</p>
-      <div class="timeline">
-        <article class="t-item">
-          <div class="t-date">2025 — 2027</div>
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <h3>BTS SIO<span class="pill">SLAM</span></h3>
-            <p class="t-meta">Lycée Jean Bart · Dunkerque</p>
-            <p class="t-desc">Développement web, ateliers professionnel, notions réseau.</p>
-          </div>
-        </article>
-        <article class="t-item">
-          <div class="t-date">2024 — 2025</div>
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <h3>Licence Mathématiques-Informatique</h3>
-            <p class="t-meta">Université de Lille</p>
-          </div>
-        </article>
-        <article class="t-item">
-          <div class="t-date">2023 — 2024</div>
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <h3>BUT Genie électrique et informatique industrielle</h3>
-            <p class="t-meta">IUT de Lille</p>
-          </div>
-        </article>
-      </div>  
-    </section>
-
-    <!-- COMPETENCES -->
-    <section id="competences" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Compétences</h2>
-          <p class="section-intro">Voici les technologies que je maîtrise</p>
-        </header>
-
-        <div class="skill-grid">
-          <div class="skill-card">
-            <div class="icon-box"><i data-lucide="code-2"></i></div>
-            <h3>Développement</h3>
-            <ul>
-              <li>HTML / CSS</li>
-              <li>JavaScript</li>
-              <li>PHP</li>
-              <li>Python</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="icon-box"><i data-lucide="database"></i></div>
-            <h3>Bases de Données</h3>
-            <ul>
-              <li>MySQL</li>
-              <li>PHPmyAdmin</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="icon-box"><i data-lucide="wrench"></i></div>
-            <h3>Outils</h3>
-            <ul>
-              <li>Git / GitHub</li>
-              <li>VS Code</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <div class="icon-box"><i data-lucide="users"></i></div>
-            <h3>Compétences</h3>
-            <ul>
-              <li>Gestion de projet</li>
-              <li>Travail en équipe</li>
-              <li>Autonome</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETS -->
-    <section id="projet" class="section section-alt">
-      <div class="container">
-        <header class="section-head">
-          <h2>Projets</h2>
-          <p class="section-intro">Quelques-uns de mes projets récents</p>
-        </header>
-
-        <div class="project-grid">
-
-          <article class="project-card">
-            <img src="assets/img/portfolio.png" alt="Site Web Portfolio" class="project-img">
-            <div class="project-content">
-              <h3>Site Web Portfolio</h3>
-              <p>Un site web personnel pour présenter mes compétences et projets.</p>
-
-              <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://github.com/RubenCassin/Portfolio" class="btn-small git">
-                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
-                  Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img src="assets/img/Idologis.png" alt="Site Idologis" class="project-img">
-            <div class="project-content">
-              <h3>Site Idologis (Projet BTS)</h3>
-              <p>Site Immobilier</p>
-
-              <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://github.com/RubenCassin/Site-Idologis" class="btn-small git">
-                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
-                  Code
-                </a>
-                <a href="projet/Site Web Idologis Statique/index.html" class="btn-small ext">
-                  <img src="assets/img/external-svgrepo-com.svg" alt="Démo">
-                  Démo
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img src="assets/img/FaisTaBA.png" alt="Hackathon" class="project-img">
-            <div class="project-content">
-              <h3>Fais Ta BA</h3>
-              <p>Projet réalisé dans le cadre d'un Hackathon.</p>
-
-              <div class="project-tags">
-                <span>HTML</span>
-                <span>Tailwind CSS</span>
-                <span>PHP</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://github.com/Fl3ixy/hackathon2026" class="btn-small git">
-                  <img src="assets/img/github-svgrepo-com-white.svg" alt="GitHub">
-                  Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Contact</h2>
-          <p class="section-intro">N'hésitez pas à me contacter</p>
-        </header>
-
-        <div class="contact-wrap">
-          <div class="contact-card">
-            <p><strong>Email :</strong> <a href="mailto:rubencassin@protonmail.com" target="_blank" rel="noopener">rubencassin@protonmail.com</a></p>
-            <p><strong>GitHub :</strong> <a href="https://github.com/RubenCassin" target="_blank" rel="noopener">github.com/RubenCassin</a></p>
-            <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank" rel="noopener">linkedin.com/in/ruben-cassin-8714b5301/</a></p>
-            <p><strong>Discord :</strong> <a href="https://discord.com/users/panda.png" target="_blank" rel="noopener">panda.png</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Ruben Cassin. Tous droits réservés.</p>
+    <p class="hero-desc">
+      Passionné par le développement web, je conçois des <strong>interfaces modernes</strong>
+      et des <strong>architectures backend robustes</strong>. Actuellement en cours de
+      formation en <strong>BTS SIO</strong>, option SLAM.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn-secondary">Me contacter</a>
     </div>
-  </footer>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Projets réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Années de formation</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Technologies maîtrisées</div>
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
+  </div>
+</section>
 
+<!-- =============================================
+     SKILLS — ajoute/supprime des .skill-tag
+     Mets class="skill-tag hot" pour tes meilleures techno
+     ============================================= -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Stack technique</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
 
-  <script src="js/script.js" defer></script>
+      <!-- Technos issues des projets OCHE + NotLucky -->
+      <div class="skill-block fade-up">
+        <div class="skill-category">Langages &amp; Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag hot">TypeScript</span>
+          <span class="skill-tag hot">JavaScript</span>
+          <span class="skill-tag hot">React</span>
+          <span class="skill-tag hot">Next.js</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-block fade-up">
+        <div class="skill-category">Mobile</div>
+        <div class="skill-tags">
+          <span class="skill-tag hot">React Native</span>
+          <span class="skill-tag hot">Expo</span>
+          <span class="skill-tag">Zustand</span>
+        </div>
+      </div>
+
+      <div class="skill-block fade-up">
+        <div class="skill-category">Backend &amp; Data</div>
+        <div class="skill-tags">
+          <span class="skill-tag hot">Node.js</span>
+          <span class="skill-tag hot">Express</span>
+          <span class="skill-tag">REST API</span>
+          <span class="skill-tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-block fade-up">
+        <div class="skill-category">Outils &amp; Services</div>
+        <div class="skill-tags">
+          <span class="skill-tag hot">Git / GitHub</span>
+          <span class="skill-tag">Shopify</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">ESLint</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PROJETS — tes vrais projets.
+     Remplace href="#" par le lien GitHub / démo de chaque projet.
+     ============================================= -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projets</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-list">
+
+      <!-- PROJET 1 — OCHE (app + branding) -->
+      <a class="project-card fade-up" href="#" target="_blank" rel="noopener">
+        <div>
+          <div class="project-meta">
+            <span class="project-num">01</span>
+            <span class="project-type">App mobile + Design system</span>
+          </div>
+          <div class="project-name">OCHE — App de fléchettes &amp; identité de marque</div>
+          <div class="project-desc">
+            Concept de bar à fléchettes doublé d'une plateforme logicielle. Côté <strong>app</strong> :
+            application mobile de scoring 501 (saisie de volées, suggestions de checkout, stats de
+            progression façon Strava) adossée à un backend temps réel. Côté <strong>marketing</strong> :
+            un design system complet — logo, palette pub anglais, typographie signage et UI kits
+            desktop, mobile, tablette et scoreboards TV pour les écrans in-bar.
+          </div>
+          <div class="project-stack">
+            <span class="stack-pill">React Native</span>
+            <span class="stack-pill">Expo</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Express</span>
+            <span class="stack-pill">SQLite</span>
+            <span class="stack-pill">Zustand</span>
+            <span class="stack-pill">Design System</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <!-- PROJET 2 — NotLucky (e-commerce) -->
+      <a class="project-card fade-up" href="#" target="_blank" rel="noopener">
+        <div>
+          <div class="project-meta">
+            <span class="project-num">02</span>
+            <span class="project-type">Site e-commerce</span>
+          </div>
+          <div class="project-name">NotLucky — Boutique streetwear headless</div>
+          <div class="project-desc">
+            Boutique en ligne sur-mesure pour une marque de streetwear indépendante. Front
+            <strong>headless</strong> prêt à brancher sur Shopify : grille produits, fiche produit,
+            panier en drawer persistant et sélection de tailles. Direction artistique forte —
+            noir, grain argentique, typographie poster et accent rouge sang.
+          </div>
+          <div class="project-stack">
+            <span class="stack-pill">Next.js</span>
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Tailwind CSS</span>
+            <span class="stack-pill">Shopify</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <!-- PROJET 3 — Fais Ta BA (Hackathon) -->
+      <a class="project-card fade-up" href="https://github.com/Fl3ixy/hackathon2026" target="_blank" rel="noopener">
+        <div>
+          <div class="project-meta">
+            <span class="project-num">03</span>
+            <span class="project-type">Hackathon</span>
+          </div>
+          <div class="project-name">Fais Ta BA</div>
+          <div class="project-desc">
+            Projet web réalisé en équipe dans le cadre d'un hackathon, conçu et développé
+            en temps limité.
+          </div>
+          <div class="project-stack">
+            <span class="stack-pill">HTML</span>
+            <span class="stack-pill">Tailwind CSS</span>
+            <span class="stack-pill">PHP</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <!-- PROJET 4 — Site Idologis (Projet BTS) — démo locale -->
+      <a class="project-card fade-up" href="projet/idologis/index.html" target="_blank" rel="noopener">
+        <div>
+          <div class="project-meta">
+            <span class="project-num">04</span>
+            <span class="project-type">Projet BTS</span>
+          </div>
+          <div class="project-name">Site Idologis — Agence immobilière</div>
+          <div class="project-desc">
+            Site vitrine statique pour une agence immobilière : biens à la vente et à la
+            location, galerie photos et page de contact. Réalisé en BTS SIO.
+          </div>
+          <div class="project-stack">
+            <span class="stack-pill">HTML</span>
+            <span class="stack-pill">CSS</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <!-- PROJET 5 — Portfolio (code source) -->
+      <a class="project-card fade-up" href="https://github.com/RubenCassin/Portfolio" target="_blank" rel="noopener">
+        <div>
+          <div class="project-meta">
+            <span class="project-num">05</span>
+            <span class="project-type">Site web</span>
+          </div>
+          <div class="project-name">Portfolio personnel</div>
+          <div class="project-desc">
+            Ce site : un portfolio pour présenter mon parcours, mes compétences et mes
+            projets. Code source disponible sur GitHub.
+          </div>
+          <div class="project-stack">
+            <span class="stack-pill">HTML</span>
+            <span class="stack-pill">CSS</span>
+            <span class="stack-pill">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     À PROPOS — modifie le texte et le bloc terminal
+     ============================================= -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">À propos</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>
+          Étudiant en <strong>BTS SIO option SLAM</strong> passionné par le développement web,
+          je construis des applications qui combinent performance technique et expérience
+          utilisateur soignée.
+        </p>
+        <p>
+          Mon cursus m'a permis de maîtriser les fondamentaux du <strong>développement
+          full stack</strong> : de la conception de bases de données à la réalisation
+          d'interfaces modernes, en passant par la mise en place d'APIs.
+        </p>
+        <p>
+          Toujours en veille technologique, j'explore en parallèle <strong>React, Docker
+          et les architectures microservices</strong>. Je suis actuellement en cours de
+          formation en <strong>BTS SIO, option SLAM</strong>.
+        </p>
+      </div>
+      <div class="terminal-block fade-up">
+        <div class="terminal-bar">
+          <div class="terminal-dot" style="background:#ff5f57;"></div>
+          <div class="terminal-dot" style="background:#febc2e;"></div>
+          <div class="terminal-dot" style="background:#28c840;"></div>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:8px;">whoami.sh</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-prompt">❯</span> <span class="t-cmd">cat about.json</span></div>
+          <div class="t-out">{</div>
+          <div class="t-out">&nbsp;&nbsp;"nom": <span class="t-highlight">"Ruben CASSIN"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;"formation": <span class="t-highlight">"BTS SIO SLAM"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;"ville": <span class="t-highlight">"Dunkerque, France"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;"statut": <span class="t-highlight">"en formation"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;"passion": <span class="t-highlight">"clean code"</span></div>
+          <div class="t-out">}</div>
+          <div style="margin-top:8px;"><span class="t-prompt">❯</span> <span class="t-cursor">_</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CONTACT — remplace par tes vraies infos
+     ============================================= -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="margin-bottom:2rem;font-size:15px;color:var(--muted);">
+      N'hésitez pas à me contacter !
+    </p>
+    <div class="contact-grid">
+
+      <div class="contact-block fade-up">
+        <div class="contact-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00ff9d" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">
+          <!-- Remplace par ton email -->
+          <a href="mailto:rubencassin@protonmail.com">rubencassin@protonmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-block fade-up">
+        <div class="contact-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="1.5">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">
+          <!-- Remplace par ton GitHub -->
+          <a href="https://github.com/RubenCassin" target="_blank" rel="noopener">github.com/RubenCassin</a>
+        </div>
+      </div>
+
+      <div class="contact-block fade-up">
+        <div class="contact-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">
+          <!-- Remplace par ton LinkedIn -->
+          <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank" rel="noopener">linkedin.com/in/ruben-cassin</a>
+        </div>
+      </div>
+
+      <div class="contact-block fade-up">
+        <div class="contact-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00ff9d" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-label">Localisation</div>
+        <div class="contact-value">Dunkerque, France</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="assets/Ruben_Cassin_CV.pdf" class="btn-primary" download>Télécharger mon CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER — modifie ton nom et l'année
+     ============================================= -->
+<footer>
+  <p>Conçu &amp; développé par <span>Ruben CASSIN</span> · 2025 · BTS SIO SLAM</p>
+</footer>
+
+<!-- Le JavaScript est désormais dans un fichier séparé -->
+<script src="script.js"></script>
+
 </body>
 </html>
