@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruben Cassin — CV Développeur Web</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     CV — Ruben Cassin
+     Modifie librement le contenu entre les balises
+     ============================================= */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#0b0c10;
+    --bg2:#13141a;
+    --bg3:#1c1d26;
+    --accent:#00e5ff;      /* couleur principale — modifiable */
+    --accent2:#7c3aed;     /* couleur secondaire — modifiable */
+    --text:#f0f4f8;
+    --muted:#64748b;
+    --border:#1e2533;
+    --mono:'JetBrains Mono',monospace;
+    --sans:'Syne',sans-serif;
+    --sidebar-w:230px;
+  }
+
+  html{font-size:14px;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:2rem 1rem;
+  }
+
+  /* =============================================
+     GRILLE PRINCIPALE
+     ============================================= */
+  .cv{
+    width:100%;
+    max-width:900px;
+    display:grid;
+    grid-template-columns:var(--sidebar-w) 1fr;
+    min-height:1120px; /* hauteur A4 approximative */
+    position:relative;
+  }
+
+  /* Ligne verticale déco */
+  .cv::after{
+    content:'';
+    position:absolute;
+    left:var(--sidebar-w);
+    top:0;bottom:0;
+    width:1px;
+    background:linear-gradient(to bottom,transparent,var(--accent) 20%,var(--accent2) 80%,transparent);
+    opacity:0.3;
+  }
+
+  /* =============================================
+     SIDEBAR
+     ============================================= */
+  .sidebar{
+    background:var(--bg2);
+    padding:2rem 1.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+    position:relative;
+    z-index:1;
+  }
+
+  /* AVATAR */
+  .avatar-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid var(--border);
+  }
+  .avatar{
+    width:80px;height:80px;border-radius:4px;
+    background:linear-gradient(135deg,var(--accent2),var(--accent));
+    display:flex;align-items:center;justify-content:center;
+    font-size:2rem;font-weight:800;color:#fff;
+    font-family:var(--sans);letter-spacing:-0.03em;
+    position:relative;overflow:hidden;
+  }
+  .avatar::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.1));
+  }
+  .avatar-initials{position:relative;z-index:1;}
+  .avatar-name{text-align:center;}
+  .avatar-name .first{font-size:1.05rem;font-weight:700;color:var(--text);display:block;}
+  .avatar-name .last{
+    font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;
+    color:transparent;-webkit-text-stroke:1px var(--accent);
+    display:block;line-height:1.1;
+  }
+  .avatar-title{
+    font-family:var(--mono);font-size:9px;
+    color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;
+    text-align:center;margin-top:4px;
+  }
+
+  /* SIDEBAR SECTIONS */
+  .sb-section{display:flex;flex-direction:column;gap:0.75rem;}
+  .sb-label{
+    font-family:var(--mono);font-size:9px;
+    color:var(--accent2);letter-spacing:0.18em;text-transform:uppercase;
+    display:flex;align-items:center;gap:6px;margin-bottom:2px;
+  }
+  .sb-label::before{content:'//';color:var(--muted);}
+
+  /* CONTACT */
+  .contact-item{
+    display:flex;align-items:flex-start;gap:8px;
+    font-size:11px;line-height:1.5;
+  }
+  .contact-item svg{flex-shrink:0;margin-top:1px;}
+  .contact-item span{color:var(--muted);}
+  .contact-item a{color:var(--accent);text-decoration:none;font-size:10.5px;word-break:break-all;}
+  .contact-item a:hover{text-decoration:underline;}
+
+  /* COMPÉTENCES */
+  .skill-group{margin-bottom:0.6rem;}
+  .skill-group-name{
+    font-size:10px;font-weight:600;color:var(--text);
+    margin-bottom:5px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:4px;}
+  .tag{
+    font-family:var(--mono);font-size:9.5px;
+    padding:3px 7px;border:1px solid var(--border);
+    color:var(--muted);background:var(--bg3);
+    transition:all 0.15s;
+  }
+  .tag.star{border-color:rgba(0,229,255,0.35);color:var(--accent);}
+
+  /* SOFT SKILLS */
+  .soft-item{
+    font-size:11.5px;color:var(--text);
+    padding:5px 0;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:6px;
+  }
+  .soft-item::before{
+    content:'';display:block;width:4px;height:4px;border-radius:50%;
+    background:var(--accent2);flex-shrink:0;
+  }
+  .soft-item:last-child{border-bottom:none;}
+
+  /* CENTRES D'INTÉRÊTS */
+  .interest{font-size:11px;color:var(--muted);margin-bottom:4px;}
+  .interest strong{color:var(--text);}
+
+  /* =============================================
+     MAIN CONTENT
+     ============================================= */
+  .main{
+    background:var(--bg);
+    padding:2rem 2rem 2rem 2.5rem;
+    display:flex;flex-direction:column;gap:2rem;
+    position:relative;z-index:1;
+  }
+
+  /* EN-TÊTE MAIN */
+  .main-header{
+    padding-bottom:1.5rem;
+    border-bottom:1px solid var(--border);
+  }
+  .main-tag{
+    font-family:var(--mono);font-size:9px;color:var(--accent);
+    letter-spacing:0.18em;text-transform:uppercase;
+    display:flex;align-items:center;gap:6px;margin-bottom:0.75rem;
+  }
+  .main-tag::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+  .main-title{
+    font-size:2.4rem;font-weight:800;letter-spacing:-0.035em;line-height:1;
+  }
+  .main-title .colored{color:var(--accent);}
+  .main-sub{
+    font-family:var(--mono);font-size:10px;color:var(--muted);
+    letter-spacing:0.05em;margin-top:6px;
+  }
+  .main-desc{
+    font-size:12.5px;color:var(--muted);line-height:1.75;
+    margin-top:0.75rem;max-width:520px;
+  }
+  .main-desc strong{color:var(--text);}
+
+  /* SECTIONS MAIN */
+  .ms{display:flex;flex-direction:column;gap:1rem;}
+  .ms-title{
+    display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;
+  }
+  .ms-title h2{
+    font-size:11px;font-weight:700;letter-spacing:0.15em;
+    text-transform:uppercase;color:var(--text);
+  }
+  .ms-title::after{
+    content:'';flex:1;height:1px;background:var(--border);
+  }
+
+  /* FORMATION */
+  .edu-item{
+    display:grid;grid-template-columns:1fr auto;
+    gap:4px 12px;align-items:start;
+    padding:0.75rem 0;
+    border-bottom:1px solid var(--border);
+  }
+  .edu-item:last-child{border-bottom:none;padding-bottom:0;}
+  .edu-name{font-size:12.5px;font-weight:700;color:var(--text);}
+  .edu-place{font-size:11px;color:var(--accent);font-family:var(--mono);}
+  .edu-date{
+    font-family:var(--mono);font-size:10px;
+    color:var(--muted);text-align:right;white-space:nowrap;
+    padding:2px 6px;border:1px solid var(--border);
+    height:fit-content;
+  }
+  .edu-desc{font-size:11.5px;color:var(--muted);margin-top:2px;grid-column:1;}
+
+  /* PROJETS */
+  .proj-item{
+    padding:1rem;
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent2);
+    margin-bottom:0;
+    transition:border-color 0.2s;
+  }
+  .proj-item + .proj-item{margin-top:8px;}
+  .proj-item:hover{border-left-color:var(--accent);}
+  .proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px;}
+  .proj-name{font-size:12.5px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
+  .proj-type{
+    font-family:var(--mono);font-size:9px;
+    padding:2px 7px;background:rgba(124,58,237,0.15);
+    border:1px solid rgba(124,58,237,0.3);color:var(--accent2);
+    white-space:nowrap;flex-shrink:0;
+  }
+  .proj-stack{
+    font-family:var(--mono);font-size:9.5px;color:var(--accent);
+    margin-bottom:6px;letter-spacing:0.05em;
+  }
+  .proj-bullets{list-style:none;padding:0;}
+  .proj-bullets li{
+    font-size:11.5px;color:var(--muted);line-height:1.6;
+    padding-left:14px;position:relative;
+  }
+  .proj-bullets li::before{
+    content:'›';position:absolute;left:0;color:var(--accent2);font-weight:700;
+  }
+
+  /* BARRE DE LANGUES */
+  .lang-item{display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;}
+  .lang-name{font-size:11.5px;color:var(--text);min-width:70px;}
+  .lang-bar{flex:1;height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
+  .lang-fill{height:100%;background:linear-gradient(to right,var(--accent2),var(--accent));border-radius:2px;}
+  .lang-level{font-family:var(--mono);font-size:9.5px;color:var(--muted);min-width:60px;text-align:right;}
+
+  /* FOOTER */
+  .cv-footer{
+    margin-top:auto;padding-top:1rem;
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .cv-footer-left{font-family:var(--mono);font-size:9px;color:var(--muted);}
+  .cv-footer-right{font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:0.05em;}
+
+  /* PRINT */
+  @page{size:A4;margin:0;}
+  @media print{
+    body{background:#fff;padding:0;}
+    .cv{max-width:100%;box-shadow:none;min-height:auto;}
+    :root{
+      --bg:#fff;--bg2:#f8f9fa;--bg3:#f1f3f5;
+      --text:#0f172a;--muted:#475569;--border:#e2e8f0;
+    }
+  }
+
+  /* RESPONSIVE */
+  @media(max-width:650px){
+    .cv{grid-template-columns:1fr;--sidebar-w:100%;}
+    .cv::after{display:none;}
+    .sidebar{border-bottom:1px solid var(--border);}
+  }
+</style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- =============================================
+       SIDEBAR GAUCHE
+       ============================================= -->
+  <aside class="sidebar">
+
+    <!-- AVATAR + NOM -->
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <span class="avatar-initials">RC</span>  <!-- Initiales -->
+      </div>
+      <div class="avatar-name">
+        <span class="first">Ruben</span>          <!-- Prénom -->
+        <span class="last">CASSIN</span>          <!-- Nom -->
+      </div>
+      <div class="avatar-title">Développeur Web Full Stack</div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-label">Contact</div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Dunkerque, France</span>
+      </div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:rubencassin@protonmail.com">rubencassin@protonmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.61 2.84 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16l.2.92z"/></svg>
+        <span>07 86 53 65 86</span>
+      </div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/RubenCassin" target="_blank">github.com/RubenCassin</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/ruben-cassin-8714b5301/" target="_blank">linkedin.com/in/ruben-cassin</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 11V17M7 7v.5M12 11v6M12 8v2M17 11v6M17 7v2"/></svg>
+        <span>Permis B</span>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES TECHNIQUES -->
+    <div class="sb-section">
+      <div class="sb-label">Compétences</div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend</div>
+        <div class="tags">
+          <!-- .star = compétence principale -->
+          <span class="tag star">HTML5</span>
+          <span class="tag star">CSS3</span>
+          <span class="tag star">JavaScript</span>
+          <span class="tag star">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Mobile &amp; Backend</div>
+        <div class="tags">
+          <span class="tag star">React Native</span>
+          <span class="tag">Expo</span>
+          <span class="tag star">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Base de données</div>
+        <div class="tags">
+          <span class="tag star">MySQL</span>
+          <span class="tag star">SQL</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Outils</div>
+        <div class="tags">
+          <span class="tag star">Git / GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Linux</span>
+          <span class="tag">VirtualBox</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="sb-section">
+      <div class="sb-label">Soft Skills</div>
+      <div class="soft-item">Rigueur</div>
+      <div class="soft-item">Autonomie</div>
+      <div class="soft-item">Esprit d'équipe</div>
+      <div class="soft-item">Persévérance</div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="sb-section">
+      <div class="sb-label">Langues</div>
+      <div class="lang-item">
+        <span class="lang-name">Français</span>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        <span class="lang-level">Natif</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Anglais</span>
+        <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+        <span class="lang-level">Intermédiaire</span>
+      </div>
+    </div>
+
+    <!-- CENTRES D'INTÉRÊTS -->
+    <div class="sb-section">
+      <div class="sb-label">Intérêts</div>
+      <div class="interest"><strong>Jeux vidéo</strong> — Gestion du stress & prise de décision rapide</div>
+      <div class="interest"><strong>Basket-Ball</strong> — Esprit d'équipe</div>
+    </div>
+
+  </aside>
+
+  <!-- =============================================
+       CONTENU PRINCIPAL
+       ============================================= -->
+  <main class="main">
+
+    <!-- EN-TÊTE -->
+    <div class="main-header">
+      <div class="main-tag">BTS SIO · Option SLAM · 2025–2027</div>
+      <h1 class="main-title">
+        Ruben <span class="colored">Cassin</span>
+      </h1>
+      <div class="main-sub">Développeur Web / Application · Full Stack</div>
+      <p class="main-desc">
+        Étudiant en <strong>BTS SIO option SLAM</strong>, je conçois des
+        <strong>applications web et mobiles</strong> : des interfaces modernes
+        (React, Next.js) jusqu'aux APIs et bases de données. Curieux et persévérant,
+        je souhaite contribuer à des projets concrets au sein d'une équipe.
+      </p>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="ms">
+      <div class="ms-title"><h2>Formations</h2></div>
+
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">BTS SIO — option SLAM</div>
+          <div class="edu-place">Lycée Jean-Bart, Dunkerque</div>
+          <div class="edu-desc">Services Informatiques aux Organisations · Développement applicatif</div>
+        </div>
+        <div class="edu-date">2025 – 2027</div>
+      </div>
+
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">Licence Math-Info (L1)</div>
+          <div class="edu-place">Université de Lille</div>
+        </div>
+        <div class="edu-date">2024 – 2025</div>
+      </div>
+
+      <div class="edu-item">
+        <div>
+          <div class="edu-name">BUT GEII (1ère année)</div>
+          <div class="edu-place">IUT de Lille</div>
+          <div class="edu-desc">Génie Électrique et Informatique Industrielle</div>
+        </div>
+        <div class="edu-date">2023 – 2024</div>
+      </div>
+    </div>
+
+    <!-- PROJETS INFORMATIQUES -->
+    <div class="ms">
+      <div class="ms-title"><h2>Projets informatiques</h2></div>
+
+      <!-- Projets repris du portfolio -->
+      <div class="proj-item">
+        <div class="proj-top">
+          <div class="proj-name">OCHE — App de fléchettes &amp; design system</div>
+          <span class="proj-type">App mobile</span>
+        </div>
+        <div class="proj-stack">React Native · Expo · TypeScript · Express · SQLite</div>
+        <ul class="proj-bullets">
+          <li>Application mobile de scoring 501 avec suivi de statistiques</li>
+          <li>Backend Express + SQLite exposant une API REST</li>
+          <li>Design system complet : logo, palette, typographie, UI kits</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-top">
+          <div class="proj-name">NotLucky — Boutique streetwear</div>
+          <span class="proj-type">Site e-commerce</span>
+        </div>
+        <div class="proj-stack">Next.js · React · TypeScript · Tailwind CSS · Shopify</div>
+        <ul class="proj-bullets">
+          <li>Boutique en ligne sur-mesure, front headless prêt pour Shopify</li>
+          <li>Catalogue, fiche produit, panier persistant et sélection de tailles</li>
+          <li>Interface responsive avec direction artistique soignée</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-top">
+          <div class="proj-name">Fais Ta BA</div>
+          <span class="proj-type">Hackathon</span>
+        </div>
+        <div class="proj-stack">HTML · Tailwind CSS · PHP</div>
+        <ul class="proj-bullets">
+          <li>Projet web réalisé en équipe dans le cadre d'un hackathon</li>
+          <li>Conception et développement en temps limité</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-top">
+          <div class="proj-name">Site Idologis — Agence immobilière</div>
+          <span class="proj-type">Projet BTS</span>
+        </div>
+        <div class="proj-stack">HTML · CSS</div>
+        <ul class="proj-bullets">
+          <li>Site vitrine pour une agence immobilière (ventes &amp; locations)</li>
+          <li>Galerie photos et page de contact</li>
+          <li>Réalisé dans le cadre du BTS SIO</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTER CV -->
+    <div class="cv-footer">
+      <span class="cv-footer-left">rubencassin@protonmail.com · 07 86 53 65 86</span>
+      <span class="cv-footer-right">RUBEN CASSIN · DEV WEB</span>
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>
